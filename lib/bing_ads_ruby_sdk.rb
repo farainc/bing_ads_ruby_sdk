@@ -21,9 +21,9 @@ module BingAdsRubySdk
     yield(config)
   end
 
-  def self.log(level, ...)
+  def self.log(level, *args)
     return unless config.log
-    config.logger.send(level, ...)
+    config.logger.send(level, *args)
   end
 
   def self.root_path

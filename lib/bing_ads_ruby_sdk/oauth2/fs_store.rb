@@ -22,8 +22,9 @@ module BingAdsRubySdk
       # @return [Hash] if the token information that was stored.
       # @return [nil] if the file doesn't exist.
       def read
-        return nil unless File.file?("./#{filename}")
-        JSON.parse(File.read(filename))
+        path = filename.start_with?('/') ? filename : "./#{filename}"
+        return nil unless File.file?(path)
+        JSON.parse(File.read(path))
       end
 
       private
